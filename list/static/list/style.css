@@ -1,0 +1,42 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: black;
+  background-color: #ffffff;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  color: rgb(0, 167, 167);
+}
+
+hr{
+  height:0.5px;
+  border-width:0;
+  color:rgb(190, 190, 190);
+  background-color:rgb(190, 190, 190); 
+  opacity: 0.3;
+}
+
+body{
+  /* font-family: 'Times New Roman'; */
+
+}
+
+.up-navbar{
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
