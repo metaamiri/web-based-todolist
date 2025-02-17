@@ -47,7 +47,7 @@ body{
 .body-content-container{
   width: 100%;
   padding: 20px;
-  display: flex;
+
   justify-content: center; 
   align-items: center;
   height: 60vh;
@@ -89,28 +89,30 @@ input[type="submit"]:hover {
 }
 
 
-.columns {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 50px;
-}
-
-.column {
-  width: 200px;
-  padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+.tasks-column {
+  /* border: 2px solid #ddd; */
+  /* border-radius: 10px; */
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  text-align: center;
-}
+  text-align: left;
+} 
 
 
-.columns li {
+/* #tasks-column ul li {
+  display: block; 
   padding: 8px;
+  border-bottom: 1px solid #ddd; 
+
   margin: 5px 0;
   background: #f9f9f9;
-  border-radius: 5px;
+  cursor: pointer;
+} */
+
+#openTasks li{
+  display: flex; 
+  width: 100%; /* عرض کامل */
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* خط جداکننده برای زیبایی */
+  margin: 5px 0;
   cursor: pointer;
 }

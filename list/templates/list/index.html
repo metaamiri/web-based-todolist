@@ -38,24 +38,27 @@
               </form>
             </div>
 
-            {% if tasks.length > 0 %}
             <div class="tasks">
-              <div class="columns">
-                <div class="column">
-                    <h2>Open</h2>
-                    <ul id="openTasks">
-                      {% for task in tasks %}
-                        <li>{{task}}</li>
-                      {% endfor %}
-                    </ul>
-                </div>
-                <div class="column">
-                    <h2>Finished</h2>
-                    <ul id="finishedTasks"></ul>
-                </div>
+              <div class="row justify-content-around">
+                  <div class="col-4">
+                    <div id="task-column">
+                      <h2>Open</h2>
+                      <ul id="openTasks">
+                        {% for task in tasks %}
+                          <li>{{task}}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div id="task-column">
+                      <h2>Finished</h2>
+                      <ul id="finishedTasks"></ul>
+                    </div>
+                  </div>
               </div>
-            </div>
-            {% endif %}
+            </div>  
+
         </div>    
       </div>
       <div class="col">
