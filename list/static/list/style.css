@@ -45,6 +45,7 @@ body{
 }
 
 .body-content-container{
+  display: flex;
   width: 100%;
   padding: 20px;
   justify-content: center; 
@@ -88,6 +89,11 @@ input[type="submit"]:hover {
   border-color: #716b6b;
 }
 
+#submit-first-task {
+  color: white;
+  background-color: #25b7f6;
+}
+
 
 .tasks-column {
   /* border: 2px solid #ddd; */
@@ -104,6 +110,7 @@ input[type="submit"]:hover {
   border-bottom: 1px solid #ddd; /* خط جداکننده برای زیبایی */
   margin: 5px 0;
   cursor: pointer;
+  
 }
 
 #finishedTasks li{
@@ -113,4 +120,8 @@ input[type="submit"]:hover {
   border-bottom: 1px solid #ddd; /* خط جداکننده برای زیبایی */
   margin: 5px 0;
   cursor: pointer;
+}
+
+input[type="checkbox"]{
+  margin: 0px 5px;
 }
