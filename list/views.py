@@ -12,10 +12,13 @@ def index(request):
         if form.is_valid():
             task = form.cleaned_data["task"]
             request.session["tasks"] += [task]
-            print(request.session["tasks"])
             return HttpResponseRedirect(reverse("list:index"))
         else:
             return render(request, "list/index.html", {"form":form,"tasks":request.session["tasks"]})
     else:
         form = NewTaskForm()
     return render(request, "list/index.html", {"form":form,"tasks":request.session["tasks"]})
+
+def clear(request):
+    request.session["tasks"] = []
+    return HttpResponseRedirect(reverse("list:index"))

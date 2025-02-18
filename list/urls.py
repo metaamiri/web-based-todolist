@@ -4,4 +4,5 @@ app_name = "list"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("clear", views.clear, name="clear"),
 ]
