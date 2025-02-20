@@ -26,7 +26,7 @@
           </ul>  
         </div>
         <hr>
-        {% if tasks %}
+        {% if tasks or finished_tasks %}
           <div class="body-content-container" style="display: block;">
         {% else %}
           <div class="body-content-container">
@@ -36,14 +36,14 @@
               <form action="{% url 'list:index' %}" method="POST">
                 {% csrf_token %}
                 {{ form }}
-                {% if tasks %}
+                {% if tasks  or finished_tasks%}
                   <input type="submit">
                 {% else %}
                   <input id="submit-first-task" type="submit" value="let's do it">
                 {% endif %}
               </form>
             </div>
-            {% if tasks %}
+            {% if tasks  or finished_tasks%}
             <div class="tasks">
               <div class="row justify-content-around">
                   <div class="col-4">
@@ -59,7 +59,11 @@
                   <div class="col-4">
                     <div id="task-column">
                       <h2>Finished</h2>
-                      <ul id="finishedTasks"></ul>
+                      <ul id="finishedTasks">
+                        {% for task in finished_tasks %}
+                          <li><input type="checkbox" checked> {{task}}</li>
+                        {% endfor %}
+                      </ul>
                     </div>
                   </div>
               </div>
@@ -82,10 +86,10 @@
         finishedTasks.push(taskText); // اضافه کردن به آرایه
         document.getElementById("finishedTasks").appendChild(taskItem); // انتقال به لیست "Finished"
       }
-      saveFinishedTasks();
+      saveFinishedTasks(finishedTasks);
     }
 
-    function saveFinishedTasks() {
+    function saveFinishedTasks(finishedTasks) {
     fetch('/save-finished-tasks/', {
         method: 'POST',
         headers: {
