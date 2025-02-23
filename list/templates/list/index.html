@@ -64,7 +64,7 @@
                       <ul id="finishedTasks">
                         {% for task in tasks %}
                           {% if task.status == "finished" %}
-                            <li><input type="checkbox" onclick="changeStatus(this)"  checked> {{task.taskname}}</li>
+                            <li><input type="checkbox" onclick="changeStatus(this)"  checked>{{task.taskname}}</li>
                           {% endif %}
                         {% endfor %}
                       </ul>
@@ -89,6 +89,7 @@
 
           if (checkbox.checked) {
             document.getElementById("finishedTasks").appendChild(taskItem); // انتقال به لیست "Finished"
+            // taskItem.style.textDecoration = "line-through";
             status = "finished";
             saveTasks(taskText, status);
           } else {

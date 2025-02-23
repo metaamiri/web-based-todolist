@@ -7,6 +7,7 @@ from django.http import JsonResponse
 import json
 
 def index(request):
+    print("request session tasks :", request.session["tasks"])
     if "tasks" not in request.session:
         request.session["tasks"]=[]
         
@@ -41,6 +42,7 @@ def save_tasks(request):
                     dict["status"] = "open"
                 else:
                     dict["status"] = "finished"
+        request.session.modified = True
 
         print("request session tasks :", request.session["tasks"])
         return JsonResponse({"status": "success", "message": "Tasks updated successfully!"})
