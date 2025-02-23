@@ -89,11 +89,14 @@
 
           if (checkbox.checked) {
             document.getElementById("finishedTasks").appendChild(taskItem); // انتقال به لیست "Finished"
-            // taskItem.style.textDecoration = "line-through";
+            taskItem.style.textDecoration = "line-through";
+            taskItem.style.color = "gray";
             status = "finished";
             saveTasks(taskText, status);
           } else {
             document.getElementById("openTasks").appendChild(taskItem); // انتقال به لیست "Finished"
+            taskItem.style.textDecoration = "";
+            taskItem.style.color = "black";
             status = "open";
             saveTasks(taskText, status);
           }

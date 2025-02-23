@@ -7,7 +7,6 @@ from django.http import JsonResponse
 import json
 
 def index(request):
-    print("request session tasks :", request.session["tasks"])
     if "tasks" not in request.session:
         request.session["tasks"]=[]
         
@@ -35,7 +34,6 @@ def save_tasks(request):
         status = changeItems["task_status"]
         # اینجا می‌توان داده‌ها را در دیتابیس ذخیره کرد
         print("Received Finished Tasks:", changeItems) 
-        print("request session tasks :", request.session["tasks"])
         for dict in request.session["tasks"]:
             if dict["taskname"] == taskName:
                 if status == "open":
@@ -44,7 +42,6 @@ def save_tasks(request):
                     dict["status"] = "finished"
         request.session.modified = True
 
-        print("request session tasks :", request.session["tasks"])
         return JsonResponse({"status": "success", "message": "Tasks updated successfully!"})
 
     return JsonResponse({"status": "error", "message": "Invalid request!"}, status=400)
